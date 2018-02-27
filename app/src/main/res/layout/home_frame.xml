@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:background="@drawable/background">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight=".4">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#00FF00"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:text="PRESS BUTTON"/>
+    <ImageView
+        android:layout_width="0dp"
+        android:id="@+id/alarmvieww"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:src="@drawable/if_alarm"/>
+        <TextView
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:textColor="#00FF00"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:textSize="25sp"
+            android:text="FOR ALARM"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/quicksendd"
+            android:background="#00FFFF"
+            android:textColor="#FF0000"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="25sp"
+            android:onClick="onEmergengyQuicksend"
+            android:text="Women HelpLine"/>
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/Call_ambulance"
+            android:textColor="#FF0000"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:background="#00FFFF"
+            android:layout_weight="1"
+            android:onClick="onclickcallAmbulance"
+            android:textSize="25sp"
+            android:text="Call Ambulance"/>
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/call_police"
+            android:layout_marginTop="10dp"
+            android:textColor="#FF0000"
+            android:background="#00FFFF"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="25sp"
+            android:onClick="onclickcallpolice"
+            android:text="Call Police"/>
+
+
+    </LinearLayout>
+</LinearLayout>
