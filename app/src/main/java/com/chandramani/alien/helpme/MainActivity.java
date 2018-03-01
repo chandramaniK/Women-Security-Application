@@ -1,44 +1,54 @@
 package com.chandramani.alien.helpme;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.location.LocationListener;
-import android.location.LocationManager;
+import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.provider.ContactsContract;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.ImageViewCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.Toast;
 
-import java.security.PublicKey;
-
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-
+    DatabaseManager dm;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    private int backpresss=0;
+
+
+ /*   public void onclickalarmimage(View v)
+    {
+
+        MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.emergency_alert);
+        ImageView alarmm = (ImageView) v;
+        if(mp.isPlaying())
+        {
+            mp.pause();
+            mp.stop();
+        }
+        else if(!mp.isPlaying()){
+       mp.start();
+        }
+     //   setContentView(R.layout.alarm_layout);
+    }*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {                //onceate method
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer_layout);
+      dm= new DatabaseManager(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawerLayout= (DrawerLayout) findViewById(R.id.drawerr_layout1);
@@ -80,28 +90,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }  /// oncreate ends here.
 
-
- /*   public void onclickalarmimage(View v)
-    {
-
-        MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.emergency_alert);
-        ImageView alarmm = (ImageView) v;
-        if(mp.isPlaying())
-        {
-            mp.pause();
-            mp.stop();
-        }
-        else if(!mp.isPlaying()){
-       mp.start();
-        }
-     //   setContentView(R.layout.alarm_layout);
-    }*/
-
     public void onclickIssues(View v){
         Button be = (Button) v;
         Intent iissuses = new Intent(MainActivity.this,LocationActivity.class);
         startActivity(iissuses);
     }
+
     public void onclickcallAmbulance(View v){
         try {
             String ambulance = "9162322846";
@@ -143,7 +137,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -155,6 +148,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onConfigurationChanged(newConfig);
         actionBarDrawerToggle.onConfigurationChanged(newConfig);
     }
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {          //Todo : set activities for Navigation items
         // Handle navigation view item clicks here.
@@ -164,7 +158,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    private int backpresss=0;
 @Override
     public void onBackPressed() {
     backpresss+=1;
@@ -206,5 +199,63 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         return super.onOptionsItemSelected(item);
     }
+
+   public void addcontactsbutton(View v){
+
+       Button b1 = (Button) v;
+
+       long countvalue = dm.getcountt();
+
+       EditText et1 = (EditText) findViewById(R.id.phone1);
+       String s1= et1.getText().toString();
+       if(s1 != null && countvalue<3){
+       dm.insertt(s1);
+       }
+       else
+       {
+           Toast.makeText(getApplicationContext(),"No more than three contacts be added",Toast.LENGTH_LONG);
+       }
+
+
+       EditText et2 = (EditText) findViewById(R.id.phone2);
+       String s2= et1.getText().toString();
+       if(s2 != null && countvalue<3)
+       dm.insertt(s2);
+       else
+       {
+           Toast.makeText(getApplicationContext(),"No more than three contacts be added",Toast.LENGTH_LONG);
+       }
+
+       EditText et3 = (EditText) findViewById(R.id.phone3);
+       String s3= et1.getText().toString();
+
+       if(s3 != null && countvalue<3)
+       dm.insertt(s3);
+       else
+       {
+           Toast.makeText(getApplicationContext(),"No more than three contacts be added",Toast.LENGTH_LONG);
+       }
+
+       if(s1 != null || s2 != null || s3 != null ) {
+
+           Toast.makeText(getApplicationContext(),"Contacts saved",Toast.LENGTH_LONG).show();
+       }
+   }
+
+   public void onclickviewcontact(View v){                          //todo : this is a test method , needs to be modified
+       Button button = (Button) v;
+       long countvalue = dm.getcountt();
+       if(countvalue ==0)
+       {
+           Toast.makeText(getApplicationContext(),"No saved contacts",Toast.LENGTH_LONG).show();
+       }
+
+       else {
+       Cursor cur = dm.getcontact();
+       cur.moveToFirst();
+       String data = cur.getString(cur.getColumnIndex("number"));
+       Toast.makeText(getApplicationContext(),data,Toast.LENGTH_LONG).show();
+       }
+   }
 
 }

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00FFFF"
+    android:orientation="vertical"
     android:padding="16dp"
-    android:background="#00FFFF">
+    tools:context=".MainActivity">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="#800080"
         android:text="Add Contacts.
-Location will be sent to these saved contacts in case of emergency."/>
+Location will be sent to these saved contacts in case of emergency."
+        android:textColor="#800080"
+        android:textSize="20sp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -97,19 +97,33 @@ Location will be sent to these saved contacts in case of emergency."/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ADD CONTACTS"
-        android:textColor="#FF0000"
-        android:background="#00FF00"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp"
+        android:background="#00FF00"
+        android:onClick="addcontactsbutton"
+        android:text="ADD CONTACTS"
+
+        android:textColor="#FF0000"/>
     <TextView
+        android:id="@+id/skipcontacts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/skipcontacts"
-        android:textColor="#FF0000"
-        android:text="SKIP"
-        android:textSize="25sp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:text="SKIP"
+        android:textColor="#FF0000"
+        android:textSize="25sp"/>
+    <Button
+        android:id="@+id/showcontact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclickviewcontact"
+        android:text="view"/>
+    <TextView
+        android:id="@+id/testid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"/>
+
 
 </LinearLayout>
