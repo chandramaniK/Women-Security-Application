@@ -21,6 +21,8 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.Toast;
 
+import static java.lang.String.valueOf;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     DatabaseManager dm;
     DrawerLayout drawerLayout;
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tabSpec.setIndicator("CONTACT");
         tabSpec.setContent(R.id.tab13);
         tabHost.addTab(tabSpec);
-        tabHost.setCurrentTab(1);
+        tabHost.setCurrentTab(0);
 
 
         final ImageView alarmbuttonn = (ImageView) findViewById(R.id.alarmvieww);
@@ -208,10 +210,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
        EditText et1 = (EditText) findViewById(R.id.phone1);
        String s1= et1.getText().toString();
+
+       String testtt = valueOf(countvalue);
        if(s1 != null && countvalue<3){
        dm.insertt(s1);
        }
-       else
+       else if( s1 != null && countvalue>3)
        {
            Toast.makeText(getApplicationContext(),"No more than three contacts be added",Toast.LENGTH_LONG);
        }
@@ -238,7 +242,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
        if(s1 != null || s2 != null || s3 != null ) {
 
-           Toast.makeText(getApplicationContext(),"Contacts saved",Toast.LENGTH_LONG).show();
+         Toast.makeText(getApplicationContext(),testtt,Toast.LENGTH_LONG).show();
        }
    }
 

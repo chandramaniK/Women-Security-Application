@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity"
-    android:padding="16dp"
-    android:background="@drawable/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="#00FFFF"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="0dp"
-       android:orientation="horizontal"
-       android:layout_weight="1">
+       android:layout_weight="1"
+       android:orientation="horizontal">
+
        <Button
            android:id="@+id/btn_accident"
            android:layout_width="match_parent"
@@ -19,23 +20,26 @@
            android:layout_marginRight="8dp"
            android:layout_marginTop="8dp"
            android:layout_weight="1"
-           android:text="ACCIDENT"
+           android:background="@drawable/car_crash"
+           android:gravity="top|center"
            android:onClick="onclickIssues"
-           android:textSize="25sp"
-           android:textColor="#FF0000"
-           android:background="#0FF000"/>
+           android:text="ACCIDENT"
+           android:textColor="#800000"
+           android:textSize="25sp"/>
+
        <Button
            android:id="@+id/btn_fire"
-           android:layout_marginTop="8dp"
            android:layout_width="match_parent"
-           android:layout_marginLeft="8dp"
            android:layout_height="match_parent"
+           android:layout_marginLeft="8dp"
+           android:layout_marginTop="8dp"
            android:layout_weight="1"
-           android:textSize="25sp"
-           android:text="FIRE"
+           android:background="@drawable/fire_symbol_image"
+           android:gravity="top|center"
            android:onClick="onclickIssues"
-           android:textColor="#FF0000"
-           android:background="#0000FF"/>
+           android:text="FIRE"
+           android:textColor="#800000"
+           android:textSize="40sp"/>
 
    </LinearLayout>
     <LinearLayout
@@ -44,28 +48,31 @@
         android:layout_weight="1">
         <Button
             android:id="@+id/btn_Robbery"
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_marginRight="8dp"
-            android:textSize="25sp"
-            android:text="ROBBERY"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/robbery_image"
+            android:gravity="top|center"
             android:onClick="onclickIssues"
-            android:textColor="#FF0000"
-            android:background="#008080"/>
+            android:text="ROBBERY"
+            android:textColor="#800000"
+            android:textSize="25sp"/>
         <Button
             android:id="@+id/btn_Molestation"
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
-            android:layout_marginLeft="8dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:textSize="23sp"
-            android:text="MOLESTATION"
+            android:background="@drawable/molestation_image"
+            android:gravity="top|center"
             android:onClick="onclickIssues"
-            android:textColor="#FF0000"
-            android:background="#FFFF00"/>
+            android:text="MOLESTATION"
+            android:textColor="#c20404"
+            android:textSize="23sp"
+           />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,28 +80,31 @@
         android:layout_weight="1">
         <Button
             android:id="@+id/btn_medihelp"
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:textSize="25sp"
-            android:text="MEDICAL HELP"
+            android:background="@drawable/medical_symbol_image"
+            android:gravity="top|center"
             android:onClick="onclickIssues"
-            android:textColor="#FF0000"
-            android:background="#808080"/>
+            android:text="MEDICAL HELP"
+            android:textColor="#800000"
+            android:textSize="25sp"/>
         <Button
             android:id="@+id/btn_theft"
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
-            android:layout_marginLeft="8dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:textSize="25sp"
-            android:text="THEFT"
+            android:background="@drawable/theft_image"
+            android:gravity="top|center"
             android:onClick="onclickIssues"
-            android:textColor="#FF0000"
-            android:background="#0FF"/>
+            android:text="THEFT"
+            android:textColor="#800000"
+            android:textSize="40sp"
+            />
 
     </LinearLayout>
         </LinearLayout>
