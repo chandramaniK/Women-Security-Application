@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Toast.makeText(getApplicationContext(),"working this",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Not yet available",Toast.LENGTH_LONG).show();
             return true;
         }
 
