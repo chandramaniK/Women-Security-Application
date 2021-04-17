@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void onclickcallAmbulance(View v){
         try {
-            String ambulance = "9162322846";
+            String ambulance = "123456";
             Button call = (Button) v;
             Intent innt = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + ambulance));
             startActivity(innt);
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void onclickcallpolice(View v){
         try {
-            String police = "9162322846";
+            String police = "123456";
             Button call = (Button) v;
             Intent innt1 = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + police));
             startActivity(innt1);
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onEmergengyQuicksend(View v){
         Button b= (Button) v;
         try {
-            String womenhelpline = "9162322846";
+            String womenhelpline = "123456"; //1091 women helpline all   india
             Button call = (Button) v;
             Intent innt2 = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + womenhelpline));
             startActivity(innt2);
